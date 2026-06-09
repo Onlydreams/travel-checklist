@@ -1,6 +1,6 @@
 ---
 name: travel-checklist
-description: Generate practical packing lists and pre-departure checklists for trips. Use when the user asks what to pack, what to bring, what to prepare before leaving, or wants a destination/traveler/activity-specific travel checklist. 适用于旅行要带什么、行李清单、出门检查清单、亲子旅行、自驾、国外旅行、国内旅游、主题乐园、露营、徒步、雪山、高原、老人儿童同行等清单类请求。
+description: Use when the user asks in Chinese or English what to pack, what to bring, what to prepare before leaving, or wants a trip-specific packing list/pre-departure checklist. 适用于旅行要带什么、行李清单、出门检查清单、packing list、travel checklist、亲子旅行、自驾、国外旅行、国内旅游、主题乐园、露营、徒步、雪山、高原、老人儿童同行等清单类请求。
 ---
 
 # Travel Checklist
@@ -8,6 +8,15 @@ description: Generate practical packing lists and pre-departure checklists for t
 ## Scope
 
 Use this skill to produce packing lists and pre-departure checklists. Do not create full itineraries, book travel, provide visa or legal determinations, diagnose medical conditions, replace qualified guides, or claim current destination rules unless verified from official live sources.
+
+## When to Use
+
+| Use this skill when the user asks for... | Do not use this skill when the user asks for... |
+| --- | --- |
+| What to pack, what to bring, or what to prepare before leaving | A full day-by-day itinerary or route plan |
+| A packing list, travel checklist, 出门检查清单, 行李清单, or pre-departure checklist | A binding visa, customs, medical, airline, or attraction policy determination |
+| Destination-, traveler-, transport-, activity-, or luggage-style-specific preparation | Booking flights, hotels, tickets, tours, insurance, or vehicles |
+| Child, older-adult, pet, medical-needs, cruise, road-trip, camping, hiking, skiing, beach, or theme-park packing guidance | Diagnosing symptoms, prescribing medication, or replacing a qualified guide for high-risk activities |
 
 ## Workflow
 
@@ -26,26 +35,36 @@ Use this skill to produce packing lists and pre-departure checklists. Do not cre
 
 ## Output Format
 
-Use Chinese by default unless the user requests another language.
+Match the user's language by default:
+- If the user writes in Chinese, answer in Chinese.
+- If the user writes in English, answer in English.
+- If the user explicitly requests Chinese or English, use the requested language.
+- If the request is mixed or language preference is unclear, default to Chinese.
+
+Use the same language for the assumptions line, section headings, checklist items, optional labels, cautions, and "can buy locally" notes. Keep proper nouns, app names, document names, and destination names in their common form when clearer.
 
 Start with a short assumptions line:
 
 `按你的描述，我按「2名成人 / 日本 / 7天 / 酒店住宿 / 常规城市观光」来生成；如人数、季节或孩子年龄不同，清单需要微调。`
 
-Then use sections with checkboxes:
+`Based on your request, I am assuming "2 adults / Japan / 7 days / hotel stay / regular city sightseeing"; if the season, group size, or child age differs, adjust the checklist.`
 
-- 证件与出行文件
-- 钱包、支付与通讯
-- 衣物与鞋包
-- 洗护与日用品
-- 药品与健康
-- 电子设备
-- 目的地专项
-- 儿童/老人/特殊人群专项, only if relevant
-- 出门前检查
-- 不建议携带或可到当地购买, when helpful
+Then use sections with checkboxes. Use Chinese headings for Chinese output and English headings for English output:
 
-Keep items concrete. Prefer "护照原件、签证/入境许可截图、机票酒店订单离线保存" over "证件".
+| Chinese | English |
+| --- | --- |
+| 证件与出行文件 | Documents and travel files |
+| 钱包、支付与通讯 | Money, payment, and connectivity |
+| 衣物与鞋包 | Clothing, shoes, and bags |
+| 洗护与日用品 | Toiletries and daily essentials |
+| 药品与健康 | Medication and health |
+| 电子设备 | Electronics |
+| 目的地专项 | Destination-specific items |
+| 儿童/老人/特殊人群专项 | Children, older adults, or special needs |
+| 出门前检查 | Pre-departure checks |
+| 不建议携带或可到当地购买 | Not recommended or can buy locally |
+
+Keep items concrete. Prefer "护照原件、签证/入境许可截图、机票酒店订单离线保存" over "证件"; prefer "passport, visa or entry permit screenshots, offline copies of flight and hotel bookings" over "documents".
 
 ## Destination Rules
 
@@ -118,12 +137,49 @@ Home pre-departure:
 
 ## Quality Bar
 
-- Do not overpack. Mark optional items as "可选" or place them in a separate section.
-- Avoid vague filler such as "生活用品若干". Name the items.
+- Do not overpack. Mark optional items as "可选" in Chinese output or "optional" in English output, or place them in a separate section.
+- Avoid vague filler such as "生活用品若干", "miscellaneous items", or "etc.". Name the items.
 - Separate "must bring" from "can buy locally" when the destination has easy shopping access.
 - Include quantities when duration matters, for example underwear/socks by day count plus one spare set.
 - Include pre-departure tasks, not only luggage contents.
 - Avoid claiming current entry rules, airline battery rules, or attraction policies unless verified live from official/current sources.
+
+## Output Self-Check
+
+Before answering, verify:
+
+- [ ] The response starts with an assumptions line in the user's language.
+- [ ] The checklist includes both packing items and pre-departure checks.
+- [ ] The sections are relevant to the trip; irrelevant sections are omitted.
+- [ ] At least one destination, traveler, transport, activity, climate, or luggage strategy detail is reflected.
+- [ ] High-risk or easy-to-forget items appear before comfort or optional items.
+- [ ] Optional items are marked separately or labeled "可选" / "optional".
+- [ ] Items that can be bought locally are separated when shopping access is easy.
+- [ ] No current visa, customs, airline battery, cruise, attraction, or medication-import rule is stated as verified unless live official sources were checked.
+- [ ] The answer stays a checklist, not a full itinerary.
+
+## Common Mistakes
+
+- Turning a checklist request into a full itinerary. Keep route and timing details minimal unless needed for packing.
+- Including every possible section for every trip. Add only relevant sections.
+- Overpacking city trips with outdoor, camping, or emergency gear that the request does not imply.
+- Treating high-risk outdoor equipment as making the trip safe. Say it reduces risk and requires qualified planning.
+- Giving fixed legal, visa, customs, airline, cruise, or attraction rules without live official verification.
+- Mixing output languages. Match the user's language for headings and checklist text unless they request otherwise.
+- Using generic items such as "documents", "toiletries", or "miscellaneous" without concrete examples.
+
+## Test Matrix
+
+Use these scenarios to spot-check future edits:
+
+| Scenario | Expected behavior |
+| --- | --- |
+| 中文普通旅行："去成都玩4天要带什么？" | Chinese checklist, conservative assumptions, city-weather and pre-departure checks |
+| English carry-on only: "What should I pack for 10 days in Italy with carry-on only?" | English checklist, carry-on constraints, can-buy-locally split |
+| Mixed language: "去新加坡 5 days with toddler, packing list please" | Default Chinese unless user clearly asks English; include toddler and international items |
+| Parent/child beach trip | Child safety, sun, water, spare clothes, cleanup, and pre-departure checks first |
+| High-risk outdoor route | Read `references/high-risk-outdoor.md`; risk controls before gear |
+| Rule-sensitive request: "Can I bring this medicine into Japan?" | Do not decide legality; give packing precautions and tell user to verify official sources |
 
 ## Example Prompts
 
@@ -135,3 +191,7 @@ Home pre-departure:
 - "我带3岁孩子去新加坡玩5天，只带登机箱，怎么打包？"
 - "我要去北海道滑雪一周，需要准备什么？"
 - "我带老人去西藏旅行10天，需要检查清单。"
+- "What should I pack for a 10-day trip to Italy with carry-on only?"
+- "Can you make a pre-departure checklist for a family beach trip with a toddler?"
+- "I am going to Iceland in winter for a week. What should I bring?"
+- "What should I pack for my first cruise, and what should I leave at home?"

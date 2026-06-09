@@ -1,50 +1,55 @@
 # Travel Checklist Skill
 
-通用旅行出门检查清单 skill。核心运行时文件是 `skills/travel-checklist/SKILL.md`，可被支持 `SKILL.md` 约定的 agent 或工具读取。
+A portable travel packing and pre-departure checklist skill. The runtime entrypoint is `skills/travel-checklist/SKILL.md`, which can be read by agents or tools that support the `SKILL.md` convention.
+
+For the Chinese version, see `README_CN.md`.
 
 ## Structure
 
 ```text
 travel-checklist/
 ├── README.md
+├── README_CN.md
 └── skills/
     └── travel-checklist/
-        └── SKILL.md
+        ├── SKILL.md
+        └── references/
+            └── high-risk-outdoor.md
 ```
 
 ## Usage
 
-把 `skills/travel-checklist` 复制或链接到目标 agent 支持的 skills 目录中。
+Copy or link `skills/travel-checklist` into the target agent's supported skills directory.
 
 ## Upload Targets
 
-不同工具对上传目录的期望不完全一样：
+Different tools may expect different upload paths or package shapes:
 
 | Target | Use this path or package |
 | --- | --- |
 | ClawHub single skill publish | `skills/travel-checklist` |
 | Skills catalog repository | repository root |
-| Claude Code local skill | copy `skills\travel-checklist` to `~\.claude\skills\travel-checklist` |
-| Claude Desktop / Claude.ai upload | zip containing `travel-checklist\SKILL.md` |
-| OpenClaw local install | copy or install `skills\travel-checklist` so `SKILL.md` is at the skill root |
+| Claude Code local skill | copy `skills/travel-checklist` to `~/.claude/skills/travel-checklist` |
+| Claude Desktop / Claude.ai upload | zip containing `travel-checklist/SKILL.md` |
+| OpenClaw local install | copy or install `skills/travel-checklist` so `SKILL.md` is at the skill root |
 
 Packaging details can change between tools. Before publishing, verify the target platform's current packaging requirements. The core compatibility rule is that `SKILL.md` must be at the skill root.
 
 ## Example Prompts
 
-- 我要去国外日本旅游一周，需要带什么？
-- 我要去新疆伊犁旅游七天，给我生成检查清单。
-- 我要带孩子去上海迪士尼玩一个周末，帮我看看带什么东西？
-- 我要去北海道滑雪五天，只带登机箱，怎么打包？
-- 我要带老人去三亚住一周，需要准备什么？
-- 我打算去云南爬哈巴雪山，需要带些什么？
-- 我打算去走狼塔C+V，需要带什么？
-- 我带3岁孩子去新加坡玩5天，只带登机箱，怎么打包？
-- 我带老人去西藏旅行10天，需要检查清单。
+- What should I pack for a one-week trip to Japan?
+- Make me a checklist for a seven-day trip to Yili, Xinjiang.
+- I am taking my child to Shanghai Disneyland for a weekend. What should I bring?
+- I am going skiing in Hokkaido for five days with carry-on only. How should I pack?
+- I am taking my parents to Sanya for a week. What should we prepare?
+- I plan to climb Haba Snow Mountain in Yunnan. What should I bring?
+- I plan to hike the Wusun Ancient Trail. What should I prepare?
+- I am taking my 3-year-old child to Singapore for five days with carry-on only. How should I pack?
+- I am taking older adults to Tibet for ten days. Make me a checklist.
 
 ## Compatibility
 
-本仓库不绑定特定 agent。`SKILL.md` 只使用通用 frontmatter：
+This repository is not tied to a specific agent. `SKILL.md` uses only generic frontmatter:
 
 ```yaml
 ---
@@ -53,4 +58,4 @@ description: ...
 ---
 ```
 
-不依赖 Codex、OpenAI、Claude、OpenClaw、Hermes 或其他特定厂商的 metadata。若某个 agent 需要额外配置文件，建议放在独立 adapter 目录或由安装流程生成，不要让核心 skill 依赖它。
+The core skill does not depend on Codex, OpenAI, Claude, OpenClaw, Hermes, or vendor-specific metadata. If a specific agent requires extra configuration files, place them in a separate adapter directory or generate them during installation instead of making the core skill depend on them.
