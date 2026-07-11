@@ -6,9 +6,12 @@ Use this reference for snow mountains, high-altitude trekking, wilderness crossi
 
 - Start with assumptions and risk scope: route type, expected days, altitude, remoteness, lodging or camping, solo/team, guided/unguided, and whether the user is doing a summit or through-hike.
 - Put risk controls before comfort items: weather window, turnaround criteria, evacuation plan, communication plan, insurance coverage, local permits or registrations, and team experience.
+- For any hike that leaves developed areas, check official route closures and alerts, state a Plan B, and make the turnaround criteria visible before the equipment list.
 - Separate equipment into personal gear, shared team gear, consumables, and rentable/provided gear when relevant.
 - Include navigation and communication: offline maps, track files, paper map or compass if appropriate, satellite messenger or satellite phone for remote routes, contact schedule, and overdue plan.
 - Include water and food planning for unsupported routes: purification, stove/fuel, emergency food, electrolyte, daily rationing, and backup day.
+- For remote or high-altitude trips, include a time margin for acclimatization, a descent/evacuation plan, and an offline emergency contact. Do not diagnose altitude illness or recommend medication/dosage.
+- Treat insurance as a coverage check, not a generic purchase: verify the named activity, altitude or remoteness, rescue, medical evacuation or repatriation, exclusions, and the assistance contact before departure.
 - Include route-specific hazards when inferable: river crossings, snow/ice, rockfall, scree, altitude sickness, hypothermia, heat exposure, getting lost, wildlife or livestock dogs.
 - Avoid presenting the checklist as making the trip safe. Use wording such as "降低风险" and "出发前确认", not "保证安全".
 - If the request indicates a very high-risk route and lacks experience/team details, include a concise caution and recommend a qualified guide, mature team, and conservative go/no-go criteria.

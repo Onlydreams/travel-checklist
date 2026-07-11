@@ -10,16 +10,18 @@ For the Chinese version, see `README_CN.md`.
 travel-checklist/
 ├── README.md
 ├── README_CN.md
+├── LICENSE
 └── skills/
     └── travel-checklist/
         ├── SKILL.md
         └── references/
-            └── high-risk-outdoor.md
+            ├── high-risk-outdoor.md
+            └── rule-sensitive-checks.md
 ```
 
 ## Usage
 
-Copy or link `skills/travel-checklist` into the target agent's supported skills directory.
+Copy or link the complete `skills/travel-checklist` directory into the target agent's supported skills directory. Preserve the `references/` directory; high-risk outdoor and rule-sensitive requests depend on it.
 
 ## Upload Targets
 
@@ -30,10 +32,14 @@ Different tools may expect different upload paths or package shapes:
 | ClawHub single skill publish | `skills/travel-checklist` |
 | Skills catalog repository | repository root |
 | Claude Code local skill | copy `skills/travel-checklist` to `~/.claude/skills/travel-checklist` |
-| Claude Desktop / Claude.ai upload | zip containing `travel-checklist/SKILL.md` |
+| Claude Desktop / Claude.ai upload | zip the complete `travel-checklist/` directory, including `SKILL.md` and `references/` |
 | OpenClaw local install | copy or install `skills/travel-checklist` so `SKILL.md` is at the skill root |
 
 Packaging details can change between tools. Before publishing, verify the target platform's current packaging requirements. The core compatibility rule is that `SKILL.md` must be at the skill root.
+
+## License
+
+This repository is available under [MIT-0](LICENSE).
 
 ## Example Prompts
 

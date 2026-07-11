@@ -10,16 +10,18 @@
 travel-checklist/
 ├── README.md
 ├── README_CN.md
+├── LICENSE
 └── skills/
     └── travel-checklist/
         ├── SKILL.md
         └── references/
-            └── high-risk-outdoor.md
+            ├── high-risk-outdoor.md
+            └── rule-sensitive-checks.md
 ```
 
 ## 使用方式
 
-把 `skills/travel-checklist` 复制或链接到目标智能体支持的技能目录中。
+把完整的 `skills/travel-checklist` 目录复制或链接到目标智能体支持的技能目录中。必须保留 `references/` 目录，高风险户外和规则敏感场景会依赖其中的文件。
 
 ## 上传目标
 
@@ -30,10 +32,14 @@ travel-checklist/
 | ClawHub 单技能发布 | `skills/travel-checklist` |
 | 技能目录仓库 | 仓库根目录 |
 | Claude Code 本地技能 | 把 `skills/travel-checklist` 复制到 `~/.claude/skills/travel-checklist` |
-| Claude Desktop / Claude.ai 上传 | 压缩包内包含 `travel-checklist/SKILL.md` |
+| Claude Desktop / Claude.ai 上传 | 压缩完整的 `travel-checklist/` 目录，包含 `SKILL.md` 和 `references/` |
 | OpenClaw 本地安装 | 复制或安装 `skills/travel-checklist`，确保 `SKILL.md` 位于技能根目录 |
 
 具体打包要求可能随工具版本变化。发布前应以目标平台当前要求为准。核心兼容规则是：`SKILL.md` 必须位于技能根目录。
+
+## 许可证
+
+本仓库采用 [MIT-0](LICENSE) 许可证。
 
 ## 示例提问
 
